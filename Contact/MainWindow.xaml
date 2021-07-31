@@ -1,0 +1,40 @@
+﻿<Window x:Class="Contact.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Contact"
+        mc:Ignorable="d"
+        Title="Contact List" Height="450" Width="500">
+    <StackPanel>
+        <Grid>
+            <Label Content="EMAIL"  Height="28" Width="87"/>
+            <Label Content="NAME"  Height="28" Margin="52,0,378.6,0"/>
+            <Label Content="PHONE"  Height="28" Width="87" Margin="343,0,63.6,0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="433*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Click="Newwindow_click" Content="New Contact" HorizontalAlignment="Left" Margin="243.2,342,0,0" VerticalAlignment="Top" Width="91" Grid.Column="1"/>
+            <ListView x:Name="contactListview" SelectionChanged="contactListSelectionChange"  HorizontalAlignment="Left" Height="299" Margin="10,26,0,0" VerticalAlignment="Top" Width="474" Grid.ColumnSpan="2">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Content="{Binding Name}" Foreground="Indigo" HorizontalAlignment="Left" Margin="49,12,0,0" VerticalAlignment="Top" Height="28" Width="87"/>
+                            <Label Content="{Binding Email}" FontStyle="Oblique" HorizontalAlignment="Left" Margin="190,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.362,-0.108" Width="100" Height="28"/>
+                            <Label Content="{Binding phone}" HorizontalAlignment="Left" Margin="318,12,0,0" VerticalAlignment="Top" Height="34" Width="84"/>
+                        </Grid>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBox  TextChanged="Search_Boxchanged" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="22,338,0,0"/>
+
+        </Grid>
+    </StackPanel>
+
+</Window>
